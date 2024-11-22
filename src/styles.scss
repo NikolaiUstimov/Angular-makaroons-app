@@ -1,1 +1,18 @@
 /* You can add global styles to this file, and also import other style files */
+@import url(./app/style-component/normalize.scss);
+@import url(./app/style-component/fonts.scss);
+
+* {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: GilroyMedium, sans-serif;
+  margin: 0;
+  background-color: #ffefef;
+}
+
+.container {
+  max-width: 1140px;
+  margin: 0 auto;
+}

@@ -1,0 +1,90 @@
+.header {
+    background-color: #eba8b1;
+    padding: 36px 0 28px 0;
+}
+
+.header .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.menu-list {
+    list-style-type: none;
+    display: flex;
+    gap: 39px;
+}
+
+.menu-item a {
+    font-size: 14px;
+    color: #770b1d;
+    padding-bottom: 3px;
+    background-image: linear-gradient(#821328, #821328);
+    background-position: 0 100%;
+    background-repeat: no-repeat;
+    background-size: 0 2px;
+    transition: background-size .3s;
+}
+
+.menu-item a:hover {
+    background-size: 100% 2px;
+}
+
+.phone {
+    font-family: GilroyBold, sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+}
+
+.burger {
+    display: none;
+    position: relative;
+    width: 40px;
+    height: 22px;
+    border: none;
+    background-color: transparent;
+}
+
+.burger span {
+    position: absolute;
+    left: 0;
+    width: 40px;
+    height: 2px;
+    background-color: #821328;
+}
+
+.burger span:first-child {
+    transform: translateY(-10px);
+}
+
+.burger span:last-child {
+    transform: translateY(10px);
+}
+
+.close {
+    display: none;
+    position: relative;
+    width: 30px;
+    height: 30px;
+    border: none;
+    background-color: transparent;
+}
+
+.close span {
+    position: absolute;
+    width: 30px;
+    height: 2px;
+    background-color: #FFFFFF;
+}
+
+.close span:first-child {
+    top: calc(50% - 1px);
+    left: 0;
+    transform: rotate(45deg);
+}
+
+.close span:last-child {
+    top: calc(50% - 1px);
+    left: 0;
+    transform: rotate(-45deg);
+}

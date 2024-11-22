@@ -1,0 +1,106 @@
+.footer {
+    padding: 73px 0 62px 0;
+    background-color: #c0707c;
+}
+
+.footer .container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.copy {
+    font-family: GilroyRegular, sans-serif;
+    font-size: 12px;
+    color: #e3acb4;
+    padding-top: 19px;
+}
+
+.footer-social {
+    text-align: center;
+}
+
+.social-desc {
+    font-family: GilroyBold, sans-serif;
+    font-size: 16px;
+    color: #ffffff;
+    padding-top: 14px;
+}
+
+.copy-adaptive-visible {
+    display: none;
+    font-family: GilroyRegular, sans-serif;
+    font-size: 12px;
+    color: #e3acb4;
+    padding-top: 19px;
+}
+
+.present-image-wrap {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: fixed;
+    bottom: 22px;
+    right: 22px;
+    z-index: 3;
+    width: 92px;
+    height: 92px;
+    background-image: linear-gradient(45.0deg, #71081e 0%, #d7485c 100%);
+    border-radius: 50%;
+    transition: all .4s;
+    cursor: pointer;
+}
+
+.present-image-wrap:hover {
+    box-shadow: 0 0 13px 2px rgba(130,19,40,0.5);
+}
+
+.present-image {
+    max-width: 100%;
+}
+
+.present-message {
+    visibility: hidden;
+    opacity: 0;
+    width: 172px;
+    border-radius: 10px;
+    border: 2px solid #770a1d;
+    display: inline-block;
+    position: fixed;
+    bottom: 30px;
+    right: 130px;
+    z-index: 3;
+    transform: translateY(30px);
+    transition: all .5s;
+}
+.present-message::after {
+    content: '';
+    width: 15px;
+    height: 15px;
+    border-right: 2px solid #770a1d;
+    border-bottom: 2px solid #770a1d;
+    position: absolute;
+    top: 19px;
+    right: -10px;
+    background: #feefee;
+    transform: rotate(-45deg);
+}
+.message {
+    border-radius: 10px;
+    padding: 10px 14px;
+    background: #feefee;
+    position: relative;
+    z-index: 2;
+    font-size: 15px;
+    color: #770a1d;
+}
+
+.present-image-wrap:hover ~ .present-message {
+    visibility: visible;
+    opacity: 1;
+    transform: translateY(-10px);
+}
+
+.block {
+  display: none;
+}

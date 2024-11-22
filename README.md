@@ -25,3 +25,12 @@ Run `ng e2e` to execute the end-to-end tests via a platform of your choice. To u
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI Overview and Command Reference](https://angular.io/cli) page.
+
+## Перенос лендинга с макарунами на Angular
+* Перенос существующего лендинга на Angular
+* Отображение данных на странице с помощью конструкции ngFor
+* Добавление scroll для необходимых элементов
+* Добавления названия продукта при его выборе в значение input формы заказа
+* Валидация формы заказа
+* Отображение блока с информацией о получении подарка в зависимости от значения checkbox
+* Активация burger-меню
