@@ -1,0 +1,15 @@
+<li class="product-item">
+  <figure class="product-item-image">
+    <img src="assets/images/{{product.image}}" alt="Product">
+  </figure>
+  <article class="product-item-action">
+    <h6 class="product-item-title">{{product.title}}</h6>
+    <p class="product-item-count">{{product.quantity}}</p>
+    <p class="product-item-price">{{product.price | currency: 'RUB' : 'руб.' : '1.2-2' : 'ru-RU'}}</p>
+    <button class="btn product-item-btn" buttonEffects
+            [defaultBgColor]="'linear-gradient(0deg, #71081e 0%, #d7485c 100%)'"
+            [focusBgColor]="'linear-gradient(0deg, #d7485c 0%, #71081e 100%)'"
+            [hoverBgColor]="'linear-gradient(45deg, #71081e 0%, #d7485c 100%)'"
+            (click)="addProductToCart()">Заказать</button>
+  </article>
+</li>

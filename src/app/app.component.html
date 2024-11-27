@@ -19,7 +19,7 @@
         <li class="menu-item"><a href="#" (click)="scrollTo(ordersEl)">Оформить заказ</a></li>
       </ul>
     </nav>
-    <a href="{{contactInfo.hrefPone}}" class="phone">{{contactInfo.phone}}</a>
+    <a href="{{contactInfo.hrefPone}}" class="phone">{{contactInfo.phone | phoneCustom}}</a>
   </article>
 </header>
 
@@ -33,7 +33,11 @@
         Побалуйте себя и своих близких самыми вкусными и ароматными домашними пироженками Macaroon!
       </p>
       <article class="macaroons-info-button">
-        <button class="btn macaroons-info-btn" (click)="scrollTo(productsEl)">Выбрать макарун</button>
+        <button class="btn macaroons-info-btn" buttonEffects
+                [defaultBgColor]="'linear-gradient(0deg, #71081e 0%, #d7485c 100%)'"
+                [focusBgColor]="'linear-gradient(0deg, #d7485c 0%, #71081e 100%)'"
+                [hoverBgColor]="'linear-gradient(45deg, #71081e 0%, #d7485c 100%)'"
+                (click)="scrollTo(productsEl)">Выбрать макарун</button>
       </article>
       <figure class="macaroons-info-image">
         <img src="assets/images/macaroons_info.png" alt="Macaroons_info">
@@ -41,48 +45,13 @@
     </article>
   </section>
 
-  <section class="advantages">
-    <article class="container">
-      <h2 class="advantages-title">
-        Мы печём для вас вкуснейшие макаруны уже более 10 лет
-      </h2>
-      <p class="advantages-desc">
-        Все пироженки мы готовим только из натуральных и качественных продуктов, без консервантов,
-        ароматизаторов, красителей. Используем в приготовлении сливочное масло 82,5%, без дрожжей, маргарина,
-        разрыхлителей и улучшителей муки.
-      </p>
-      <figure class="advantages-image">
-        <img src="assets/images/advantages_macaroon.png" alt="Advantages_macaroon">
-      </figure>
-      <ul class="advantages-list">
-        <li class="advantages-list-item" *ngFor="let advantage of advantages; let i = index;">
-          <figure class="circle-number">
-            <span>{{i + 1}}</span>
-          </figure>
-          <h5 class="advantages-list-title">{{advantage.title}}</h5>
-          <p class="advantages-list-desc">
-            {{advantage.desc}}
-          </p>
-        </li>
-      </ul>
-    </article>
-  </section>
+  <advantages [advantages]="advantages"></advantages>
 
   <section class="products" #productsEl>
     <article class="container">
       <h2 class="products-title">Выберите свой макарун</h2>
       <ul class="products-list">
-        <li class="product-item" *ngFor="let product of products; let i = index;">
-          <figure class="product-item-image">
-            <img src="assets/images/{{product.image}}" alt="Product {{i + 1}}">
-          </figure>
-          <article class="product-item-action">
-            <h6 class="product-item-title">{{product.title}}</h6>
-            <p class="product-item-count">{{product.quantity}}</p>
-            <p class="product-item-price">{{product.price}}</p>
-            <button class="btn product-item-btn" (click)="orderEvent(product, ordersEl)">Заказать</button>
-          </article>
-        </li>
+        <products *ngFor="let product of products" [product]="product" (addProductToCartEvent)="addOrderEvent($event, product, ordersEl)"></products>
       </ul>
     </article>
   </section>
@@ -119,11 +88,11 @@
                    [class.is-invalid]="!formInputValues.clientPhone && isSubmitted"
                    [(ngModel)]="formInputValues.clientPhone">
           </label>
-          <label for="check" class="input-check">
-            <input type="checkbox" name="check" id="check" [(ngModel)]="showPresent">
-            <p>Открыть подарок</p>
-          </label>
-          <button class="btn form-btn" (click)="orderDone()">Оформить заказ</button>
+          <button class="btn form-btn" buttonEffects
+                  [defaultBgColor]="'linear-gradient(0deg, #71081e 0%, #d7485c 100%)'"
+                  [focusBgColor]="'linear-gradient(0deg, #d7485c 0%, #71081e 100%)'"
+                  [hoverBgColor]="'linear-gradient(45deg, #71081e 0%, #d7485c 100%)'"
+                  (click)="orderDone()">Оформить заказ</button>
         </form>
       </article>
       <img src="assets/images/strawberries_1.png" alt="Strawberries 1" class="order-form-img-big">
@@ -143,16 +112,17 @@
         <a href="{{contactInfo.hrefLink}}"><img src="assets/images/instagram.png" alt="Instagram"></a>
         <figcaption class="social-desc">Мы в Instagram</figcaption>
       </figure>
-      <a href="{{contactInfo.hrefPone}}" class="phone">{{contactInfo.phone}}</a>
+      <a href="{{contactInfo.hrefPone}}" class="phone">{{contactInfo.phone | phoneCustom}}</a>
       <p class="copy-adaptive-visible">Все права защищены, 2020</p>
     </article>
   </footer>
-  <figure class="present-image-wrap" [class.block]="!showPresent">
-    <img src="assets/images/present.png" alt="Present" class="present-image">
+  <figure class="present-image-wrap">
+    <img src="assets/images/cart.png" alt="Cart" class="present-image">
+    <p class="count-product">{{cartService.count}}</p>
   </figure>
-  <figure class="present-message" [class.block]="!showPresent">
+  <figure class="present-message">
     <figcaption class="message">
-      Оформите заказ и получите подарок!
+      {{cartService.price | currency: 'RUB' : 'руб.' : '1.2-2' : 'ru-RU'}}
     </figcaption>
   </figure>
 </main>

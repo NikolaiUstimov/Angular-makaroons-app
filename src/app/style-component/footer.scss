@@ -56,7 +56,23 @@
 }
 
 .present-image {
-    max-width: 100%;
+    max-width: 50%;
+    margin-right: 8px;
+}
+
+.count-product {
+  position: absolute;
+  top: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+  border: 2px solid rgb(130,19,40);
+  background-color: rgb(254,239,238);
+  color: rgb(130,19,40);
 }
 
 .present-message {
@@ -87,7 +103,7 @@
 }
 .message {
     border-radius: 10px;
-    padding: 10px 14px;
+    padding: 20px 14px;
     background: #feefee;
     position: relative;
     z-index: 2;
