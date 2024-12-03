@@ -103,7 +103,14 @@
     font-size: 15px;
     line-height: 20px;
     color: #331907;
+
+  .text-expanded {
+    cursor: pointer;
+    color: #821328;
+  }
 }
+
+
 
 @media screen and (max-width: 960px) {
   .advantages-list {
