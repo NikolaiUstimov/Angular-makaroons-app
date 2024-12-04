@@ -8,12 +8,12 @@ import {AdvantageInterface} from "../../interface/advantage.interface";
 })
 export class AdvantagesComponent implements OnInit {
   @Input() advantages: AdvantageInterface[] = [];
-  public textExpanded: boolean = true;
+  public textExpanded: { [key: number]: boolean } = {};
 
   constructor() {}
 
-  toggleTextExpanded(): void {
-    this.textExpanded = !this.textExpanded
+  toggleTextExpanded(index: number): void {
+    this.textExpanded[index] = !this.textExpanded[index];
   }
 
   ngOnInit(): void {

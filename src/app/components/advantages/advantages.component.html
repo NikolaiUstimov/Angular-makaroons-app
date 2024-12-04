@@ -18,8 +18,8 @@
         </figure>
         <h5 class="advantages-list-title">{{advantage.title}}</h5>
         <p class="advantages-list-desc">
-          {{advantage.desc | textMiniCustom : textExpanded}}
-          <span class="text-expanded" (click)="toggleTextExpanded()">{{textExpanded ? '...' : 'Скрыть'}}</span>
+          {{advantage.desc | textMiniCustom : !textExpanded[i]}}
+          <span class="text-expanded" (click)="toggleTextExpanded(i)">{{textExpanded[i] ? 'Скрыть' : '...'}}</span>
         </p>
       </li>
     </ul>
